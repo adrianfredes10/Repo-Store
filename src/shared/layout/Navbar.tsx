@@ -1,3 +1,4 @@
+import { UtensilsCrossed, Home, ClipboardList, ShoppingCart } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useCartStore } from "@/features/cart/store/useCartStore";
 import { useCartDrawerStore } from "@/features/cart/store/useCartDrawerStore";
@@ -17,7 +18,7 @@ export function Navbar() {
       {/* Logo */}
       <div className="px-5 py-5 border-b border-gray-100">
         <div className="flex items-center gap-2.5">
-          <span className="text-2xl">🏪</span>
+          <UtensilsCrossed className="w-6 h-6 text-indigo-600" />
           <span className="text-lg font-bold text-gray-900">FoodStore</span>
         </div>
       </div>
@@ -25,19 +26,19 @@ export function Navbar() {
       {/* Nav links */}
       <nav className="flex-1 px-3 py-4 space-y-1">
         <NavLink to="/" end className={linkClass}>
-          <span className="text-lg">🏠</span>
+          <Home className="w-5 h-5" />
           Inicio
         </NavLink>
         <NavLink to="/pedidos" className={linkClass}>
-          <span className="text-lg">📋</span>
+          <ClipboardList className="w-5 h-5" />
           Mis pedidos
         </NavLink>
         <button
           onClick={toggle}
           className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-100 transition"
         >
-          <span className="relative text-lg">
-            🛒
+          <span className="relative">
+            <ShoppingCart className="w-5 h-5" />
             <Badge count={count} />
           </span>
           Carrito

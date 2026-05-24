@@ -1,3 +1,4 @@
+import { ClipboardList } from "lucide-react";
 import { useOrderStore } from "../store/useOrderStore";
 import { formatPrice } from "@/utils/formatPrice";
 import { formatDate } from "@/utils/formatDate";
@@ -19,7 +20,7 @@ export default function OrdersPage() {
 
       {orders.length === 0 ? (
         <div className="py-20 text-center">
-          <p className="text-5xl mb-3">📋</p>
+          <ClipboardList className="w-14 h-14 text-gray-300 mx-auto mb-3" />
           <p className="text-sm text-gray-400">Todavía no realizaste ningún pedido</p>
         </div>
       ) : (

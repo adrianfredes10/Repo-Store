@@ -1,3 +1,4 @@
+import { Utensils } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "@/features/cart/store/useCartStore";
 import { formatPrice } from "@/utils/formatPrice";
@@ -24,7 +25,9 @@ export function ProductCard({ producto }: ProductCardProps) {
             className="h-full w-full object-cover"
           />
         ) : (
-          <div className="h-full w-full flex items-center justify-center text-5xl">🍽️</div>
+          <div className="h-full w-full flex items-center justify-center text-gray-300">
+            <Utensils className="w-12 h-12" />
+          </div>
         )}
       </div>
       <div className="p-3">

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Search, UtensilsCrossed } from "lucide-react";
 import { useProducts } from "../hooks/useProducts";
 import { useCategories } from "../hooks/useCategories";
 import { CategoryFilter } from "../components/CategoryFilter";
@@ -40,8 +41,8 @@ export default function HomePage() {
             Ordenar ahora
           </button>
         </div>
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 text-8xl opacity-20 select-none pointer-events-none">
-          🍔
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 opacity-20 select-none pointer-events-none">
+          <UtensilsCrossed className="w-28 h-28 text-white" />
         </div>
       </div>
 
@@ -50,7 +51,7 @@ export default function HomePage() {
         placeholder="Buscar productos..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        leftIcon={<span className="text-sm">🔍</span>}
+        leftIcon={<Search className="w-4 h-4 text-gray-400" />}
       />
 
       {/* Categorías */}
@@ -76,7 +77,7 @@ export default function HomePage() {
           </div>
         ) : productos.length === 0 ? (
           <div className="py-12 text-center">
-            <p className="text-3xl mb-2">🔍</p>
+            <Search className="w-8 h-8 text-gray-300 mx-auto mb-2" />
             <p className="text-sm text-gray-400">No se encontraron productos</p>
           </div>
         ) : (

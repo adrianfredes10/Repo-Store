@@ -1,3 +1,4 @@
+import { ChevronRight } from "lucide-react";
 import { formatPrice } from "@/utils/formatPrice";
 
 const ENVIO = 2.0;
@@ -32,9 +33,10 @@ export function CartSummary({ total, onCheckout, onContinue }: CartSummaryProps)
       {onContinue && (
         <button
           onClick={onContinue}
-          className="w-full text-center text-sm text-indigo-600 hover:underline py-1"
+          className="w-full flex items-center justify-center gap-1 text-sm text-indigo-600 hover:underline py-1"
         >
-          → Seguir comprando
+          <ChevronRight className="w-4 h-4" />
+          Seguir comprando
         </button>
       )}
     </div>

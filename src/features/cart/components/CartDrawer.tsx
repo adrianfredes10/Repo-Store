@@ -1,3 +1,4 @@
+import { X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "@/features/cart/store/useCartStore";
 import { useCartDrawerStore } from "@/features/cart/store/useCartDrawerStore";
@@ -47,9 +48,9 @@ export function CartDrawer() {
           </div>
           <button
             onClick={close}
-            className="text-gray-400 hover:text-gray-600 text-lg leading-none"
+            className="text-gray-400 hover:text-gray-600"
           >
-            ✕
+            <X className="w-5 h-5" />
           </button>
         </div>
 

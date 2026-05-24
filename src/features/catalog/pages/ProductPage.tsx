@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ArrowLeft, Utensils, AlertTriangle, ShoppingCart } from "lucide-react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useProduct, useProducts } from "../hooks/useProducts";
 import { useCartStore } from "@/features/cart/store/useCartStore";
@@ -53,7 +54,8 @@ export default function ProductPage() {
         onClick={() => navigate(-1)}
         className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition"
       >
-        ← Volver
+        <ArrowLeft className="w-4 h-4" />
+        Volver
       </button>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -66,7 +68,7 @@ export default function ProductPage() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="text-8xl">🍽️</span>
+            <Utensils className="w-20 h-20 text-gray-300" />
           )}
         </div>
 
@@ -103,7 +105,7 @@ export default function ProductPage() {
                     }`}
                   >
                     {ing.nombre}
-                    {ing.es_alergeno && " ⚠️"}
+                    {ing.es_alergeno && <AlertTriangle className="w-3 h-3 inline ml-1" />}
                   </span>
                 ))}
               </div>
@@ -136,7 +138,8 @@ export default function ProductPage() {
             onClick={handleAddToCart}
             className="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-bold text-sm hover:bg-indigo-700 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
-            🛒 Agregar al carrito — {formatPrice(parseFloat(producto.precio) * cantidad)}
+            <ShoppingCart className="w-4 h-4" />
+            Agregar al carrito — {formatPrice(parseFloat(producto.precio) * cantidad)}
           </button>
 
           {!producto.disponible && (

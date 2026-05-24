@@ -1,3 +1,4 @@
+import { Utensils, Trash2 } from "lucide-react";
 import { useCartStore } from "@/features/cart/store/useCartStore";
 import { formatPrice } from "@/utils/formatPrice";
 
@@ -18,7 +19,9 @@ export function CartItem({ producto_id, nombre, precio, cantidad, imagen_url }: 
         {imagen_url ? (
           <img src={imagen_url} alt={nombre} className="h-full w-full object-cover" />
         ) : (
-          <div className="h-full w-full flex items-center justify-center text-2xl">🍽️</div>
+          <div className="h-full w-full flex items-center justify-center text-gray-300">
+              <Utensils className="w-6 h-6" />
+            </div>
         )}
       </div>
       <div className="flex-1 min-w-0">
@@ -43,10 +46,10 @@ export function CartItem({ producto_id, nombre, precio, cantidad, imagen_url }: 
       </div>
       <button
         onClick={() => removeItem(producto_id)}
-        className="text-gray-300 hover:text-red-500 transition ml-1 text-base"
+        className="text-gray-300 hover:text-red-500 transition ml-1"
         aria-label="Eliminar"
       >
-        🗑
+        <Trash2 className="w-4 h-4" />
       </button>
     </div>
   );
