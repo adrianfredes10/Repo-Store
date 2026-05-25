@@ -13,8 +13,8 @@ export default function AppRouter() {
           <Route path="/" element={<HomePage />} />
           <Route path="/productos/:id" element={<ProductPage />} />
           <Route path="/pedidos" element={<OrdersPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Route>
-        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );
