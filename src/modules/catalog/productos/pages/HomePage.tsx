@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Search, UtensilsCrossed } from "lucide-react";
 import { useProducts } from "../hooks/useProducts";
-import { useCategories } from "../hooks/useCategories";
-import { CategoryFilter } from "../components/CategoryFilter";
+import { useCategories } from "../../categorias/hooks/useCategories";
+import { CategoryFilter } from "../../categorias/components/CategoryFilter";
 import { ProductGrid } from "../components/ProductGrid";
 import { Spinner } from "@/shared/ui/Spinner";
 import { Input } from "@/shared/ui/Input";
-import { useDebounce } from "../hooks/useDebounce";
+import { useDebounce } from "../../hooks/useDebounce";
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);

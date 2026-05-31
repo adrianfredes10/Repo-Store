@@ -1,20 +1,6 @@
-export interface CategoriaSimple {
-  id: number;
-  nombre: string;
-  descripcion: string | null;
-  parent_id: number | null;
-  activa: boolean;
-}
+import type { Categoria } from '../../categorias/types';
 
-export interface Categoria {
-  id: number;
-  nombre: string;
-  descripcion: string | null;
-  parent_id: number | null;
-  activa: boolean;
-  created_at: string;
-  subcategorias: CategoriaSimple[];
-}
+export type { Categoria };
 
 export interface ProductoIngrediente {
   ingrediente_id: number;
