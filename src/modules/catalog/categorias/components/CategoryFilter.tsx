@@ -36,11 +36,7 @@ export function CategoryFilter({ categories, selected, onChange }: CategoryFilte
         >
           <LayoutGrid className="w-6 h-6" />
         </div>
-        <span
-          className={`text-xs font-medium ${
-            selected === null ? "text-indigo-600" : "text-gray-500"
-          }`}
-        >
+        <span className={`text-xs font-medium ${selected === null ? "text-indigo-600" : "text-gray-500"}`}>
           Todos
         </span>
       </button>
@@ -60,11 +56,7 @@ export function CategoryFilter({ categories, selected, onChange }: CategoryFilte
             >
               <Icon className="w-6 h-6" />
             </div>
-            <span
-              className={`text-xs font-medium ${
-                selected === cat.id ? "text-indigo-600" : "text-gray-500"
-              }`}
-            >
+            <span className={`text-xs font-medium ${selected === cat.id ? "text-indigo-600" : "text-gray-500"}`}>
               {cat.nombre}
             </span>
           </button>

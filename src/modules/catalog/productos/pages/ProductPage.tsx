@@ -26,9 +26,7 @@ export default function ProductPage() {
   }
 
   if (!producto) {
-    return (
-      <div className="text-center py-20 text-gray-400">Producto no encontrado</div>
-    );
+    return <div className="text-center py-20 text-gray-400">Producto no encontrado</div>;
   }
 
   const related = (relatedData?.items ?? [])
@@ -59,20 +57,14 @@ export default function ProductPage() {
       </button>
 
       <div className="grid md:grid-cols-2 gap-8">
-        {/* Imagen */}
         <div className="rounded-2xl overflow-hidden bg-gray-100 aspect-square flex items-center justify-center">
           {producto.imagen_url ? (
-            <img
-              src={producto.imagen_url}
-              alt={producto.nombre}
-              className="h-full w-full object-cover"
-            />
+            <img src={producto.imagen_url} alt={producto.nombre} className="h-full w-full object-cover" />
           ) : (
             <Utensils className="w-20 h-20 text-gray-300" />
           )}
         </div>
 
-        {/* Info */}
         <div className="space-y-5">
           <div>
             {producto.categoria && (
@@ -82,15 +74,12 @@ export default function ProductPage() {
             )}
             <h1 className="text-2xl font-bold text-gray-900">{producto.nombre}</h1>
             {producto.descripcion && (
-              <p className="text-sm text-gray-500 mt-1.5 leading-relaxed">
-                {producto.descripcion}
-              </p>
+              <p className="text-sm text-gray-500 mt-1.5 leading-relaxed">{producto.descripcion}</p>
             )}
           </div>
 
           <p className="text-3xl font-bold text-indigo-600">{formatPrice(producto.precio)}</p>
 
-          {/* Ingredientes */}
           {producto.ingredientes.length > 0 && (
             <div>
               <h3 className="text-sm font-semibold text-gray-700 mb-2">Ingredientes</h3>
@@ -99,9 +88,7 @@ export default function ProductPage() {
                   <span
                     key={ing.ingrediente_id}
                     className={`text-xs px-2.5 py-1 rounded-full font-medium ${
-                      ing.es_alergeno
-                        ? "bg-orange-100 text-orange-700"
-                        : "bg-gray-100 text-gray-600"
+                      ing.es_alergeno ? "bg-orange-100 text-orange-700" : "bg-gray-100 text-gray-600"
                     }`}
                   >
                     {ing.nombre}
@@ -112,7 +99,6 @@ export default function ProductPage() {
             </div>
           )}
 
-          {/* Cantidad */}
           <div className="flex items-center gap-4">
             <span className="text-sm font-medium text-gray-700">Cantidad</span>
             <div className="flex items-center gap-2.5">
@@ -132,7 +118,6 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* Botón agregar */}
           <button
             disabled={!producto.disponible}
             onClick={handleAddToCart}
@@ -148,7 +133,6 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* También te puede gustar */}
       {related.length > 0 && (
         <section>
           <h2 className="text-base font-bold text-gray-900 mb-3">También te puede gustar</h2>
