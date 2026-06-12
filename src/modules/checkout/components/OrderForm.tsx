@@ -4,15 +4,21 @@ import { useDirecciones } from "../hooks/useDirecciones";
 import { useCreateOrder } from "../hooks/useCheckout";
 import { useCartStore } from "@/modules/cart/stores/useCartStore";
 import { Spinner } from "@/shared/ui/Spinner";
+import type { FormaPago } from "../types";
 
 export function OrderForm() {
   const { data: formasPago, isLoading: loadingPago } = useFormasPago();
   const { list: { data: direcciones, isLoading: loadingDir, error: errorDir } } = useDirecciones();
-  const createOrder = useCreateOrder();
   const items = useCartStore((s) => s.items);
 
   const [formaPagoId, setFormaPagoId] = useState<number | null>(null);
   const [observaciones, setObservaciones] = useState("");
+
+  const selectedForma: FormaPago | undefined = formasPago?.find((fp) => fp.id === formaPagoId);
+
+  const createOrder = useCreateOrder({
+    formaPagoCodigo: selectedForma?.codigo,
+  });
 
   const direccion = direcciones?.[0];
 
@@ -78,6 +84,9 @@ export function OrderForm() {
               className="accent-indigo-600"
             />
             <span className="text-sm font-medium text-gray-900">{fp.nombre}</span>
+            {fp.codigo === "MERCADOPAGO" && (
+              <span className="ml-auto text-xs text-indigo-500 font-medium">Pago online</span>
+            )}
           </label>
         ))}
       </div>
@@ -111,7 +120,11 @@ export function OrderForm() {
         disabled={!formaPagoId || !direccion || createOrder.isPending}
         className="w-full bg-indigo-600 text-white py-3.5 rounded-xl font-semibold text-sm hover:bg-indigo-700 disabled:opacity-50 transition"
       >
-        {createOrder.isPending ? "Procesando..." : "Confirmar pedido"}
+        {createOrder.isPending
+          ? "Procesando..."
+          : selectedForma?.codigo === "MERCADOPAGO"
+          ? "Ir a pagar con MercadoPago"
+          : "Confirmar pedido"}
       </button>
     </form>
   );
